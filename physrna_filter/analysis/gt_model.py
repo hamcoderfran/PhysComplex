@@ -2,7 +2,9 @@
 Physics-Informed Graph Transformer (PhysGT) for RNA-protein ΔΔG prediction
 and AF3 interface plausibility scoring.
 
-Architecture overview
+Waiting on more ProNAB data to build up better.
+
+Architecture overview (May be outdated/incorrect)
 ---------------------
 1.  Type-specific input projections: protein nodes and RNA nodes have different
     raw feature dimensions (ESM-2 vs RNA-FM), so we project each to a shared
