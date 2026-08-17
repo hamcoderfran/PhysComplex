@@ -1,0 +1,19 @@
+biopython>=1.81
+MDAnalysis>=2.6.0
+numpy>=1.24.0
+scipy>=1.11.0
+scikit-learn>=1.3.0
+pandas>=2.0.0
+requests>=2.31.0
+matplotlib>=3.7.0
+pdbfixer>=1.9
+openmm>=8.0
+# Optional — ProNAB SASA benchmarking only (requires C++ compiler on Windows):
+# pip install freesasa>=2.2
+# Graph transformer (physics-informed GT model)
+torch>=2.0.0
+torch-geometric>=2.4.0
+# Protein language model (ESM-2 node embeddings)
+fair-esm>=2.0.0
+# RNA language model (RNA-FM node embeddings; optional but recommended)
+# pip install rna-fm

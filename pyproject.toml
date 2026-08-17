@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "physcomplex-filter"
+version = "0.1.0"
+description = "PhysRNA core pipeline + PhysGT starter kit for building PhysComplex Filter"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [{ name = "PhysRNA / AIYGO Computational Biology Group" }]
+keywords = ["rna", "protein", "alphafold", "structure-prediction", "physgt"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "biopython>=1.81",
+    "MDAnalysis>=2.6.0",
+    "numpy>=1.24.0",
+    "scipy>=1.11.0",
+    "scikit-learn>=1.3.0",
+    "pandas>=2.0.0",
+    "requests>=2.31.0",
+    "matplotlib>=3.7.0",
+    "pdbfixer>=1.9",
+    "openmm>=8.0",
+    "torch>=2.0.0",
+    "torch-geometric>=2.4.0",
+    "fair-esm>=2.0.0",
+]
+
+[project.optional-dependencies]
+rnafm = ["rna-fm>=0.2.0", "huggingface_hub>=0.20.0"]
+full = ["rna-fm>=0.2.0", "huggingface_hub>=0.20.0"]
+dev = ["pytest>=7.0", "pytest-cov>=4.0"]
+
+[project.scripts]
+physrna = "physrna_filter.cli:main"
+physrna-filter = "physrna_filter.pipeline:_cli"
+physrna-rank = "physrna_filter.validation.rank_af3_candidates:main"
+physrna-report = "physrna_filter.validation.report_af3:main"
+physrna-screen = "physrna_filter.validation.screen_af3:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["physrna_filter*"]
+
+[tool.setuptools.package-data]
+"physrna_filter" = [
+    "validation/gt_checkpoint.pt",
+    "data/*.json",
+    "data/*.csv",
+    "data/structures/*.pdb",
+    "data/structures/*.cif",
+]

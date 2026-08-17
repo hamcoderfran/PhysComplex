@@ -1,0 +1,12 @@
+include README.md
+include HANDOFF.md
+include LICENSE
+include requirements.txt
+include pyproject.toml
+recursive-include physrna_filter/validation *.pt
+recursive-include physrna_filter/data *.json
+recursive-include physrna_filter/data *.csv
+recursive-include physrna_filter/data/structures *.pdb
+recursive-include physrna_filter/data/structures *.cif
+global-exclude __pycache__
+global-exclude *.py[cod]

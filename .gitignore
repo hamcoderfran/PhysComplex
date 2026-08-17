@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.venv/
+venv/
+*.pt
+!physrna_filter/validation/gt_checkpoint.pt
+physrna_filter/validation/mutant_structures/
+physrna_filter/validation/gt_graphs*.pt
+physrna_filter/data/emb_cache/
+~/.physrna/
