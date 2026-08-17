@@ -12,6 +12,7 @@ python -m physrna_filter.cli doctor
 
 If you want real oxDNA MD (Highly Recommended)
 Install oxDNA separately, then point PhysRNA at it:
+https://github.com/lorenzo-rovigatti/oxDNA
 
 export OXDNA_BIN=/path/to/oxDNA/build/bin/oxDNA
 # Windows + WSL example:
