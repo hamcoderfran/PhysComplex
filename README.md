@@ -9,6 +9,18 @@ cd physcomplex_filter
 pip install -e ".[dev]"
 python -m physrna_filter.cli init
 python -m physrna_filter.cli doctor
+
+If you want real oxDNA MD (Highly Recommended)
+Install oxDNA separately, then point PhysRNA at it:
+
+export OXDNA_BIN=/path/to/oxDNA/build/bin/oxDNA
+# Windows + WSL example:
+# export OXDNA_BIN=wsl:/home/you/oxDNA/build/bin/oxDNA
+Then confirm:
+
+physrna doctor
+python -m physrna_filter.data.verify_oxrna
+
 ```
 
 Hello-world score on bundled crystal:
