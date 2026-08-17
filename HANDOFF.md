@@ -1,14 +1,13 @@
 # PhysComplex Filter — handoff document
 
 **Date:** 2026-08-17  
-**Source repo:** [PhysRNA](https://github.com/hamcoderfran/PhysRNA) @ `13384e3` (`main`)  
 **This folder:** `physcomplex_filter/` — minimal extract for greenfield **PhysComplex Filter** development
 
 ---
 
 ## 1. Purpose
 
-You asked for a **standalone copy of the original PhysRNA tool + PhysGT**, without the evaluation/benchmark layer that grew into PhysComplex on `main`. This directory is that starter kit.
+This directory is that starter kit.
 
 **Use it to:**
 
@@ -16,15 +15,7 @@ You asked for a **standalone copy of the original PhysRNA tool + PhysGT**, witho
 - Train, evaluate, and fine-tune PhysGT on merged ProNAB / Nabe / literature ΔΔG data
 - Implement **PhysComplex Filter** (modality-aware adapter, calibration, coverage reporting) on top of a known-good base
 
-**Do not expect here:**
-
-- `physcomplex` CLI (`eval-coverage`, `score-boltz`, FoldBench crystal screen, frozen splits)
-- Boltz-100/1000 bundles, benchmark CSV pipelines, scorecards
-- Full CI matrix from the monorepo (subset of tests only)
-
----
-
-## 2. Architecture (what you are extending)
+## 2. Architecture 
 
 ```
                     ┌─────────────────────────────────────┐
@@ -124,7 +115,7 @@ python -m physrna_filter.data.download_rnafm_weights
 python -m physrna_filter.data.verify_rnafm_weights
 ```
 
-**Optional:** oxDNA for real free-RNA MD (`scripts/install_oxdna.sh`). Without it, pipeline uses internal C4′ Langevin (expected, not an error).
+**Optional:** oxDNA for real free-RNA MD (`scripts/install_oxdna.sh`). Without it, pipeline uses internal C4′ Langevin (expected, not an error). Highly recommend doing that, C4' Langevin is quite buggy and inaccurate.
 
 ---
 
@@ -245,28 +236,11 @@ See `pyproject.toml` and `requirements.txt`.
 **Required:** PyTorch, torch-geometric, fair-esm, BioPython, OpenMM/PDBFixer, MDAnalysis, pandas, scipy, scikit-learn.
 
 **Recommended for PhysGT training:** `pip install -e ".[full]"` (RNA-FM + Hugging Face hub).
-
 ---
 
-## 10. Syncing with upstream
-
-To pull fixes from PhysRNA monorepo without re-copying benchmarks:
-
-```bash
-# From monorepo root — example: sync pipeline only
-cp ../PhysRNA/physrna_filter/pipeline.py physrna_filter/
-cp ../PhysRNA/physrna_filter/analysis/gt_inference.py physrna_filter/analysis/
-python -m pytest tests/ -q
-```
-
-Avoid blindly copying `physrna_filter/physcomplex/` until you are ready to merge that layer into your filter design.
-
----
-
-## 11. Contact / provenance
+## 10. Contact / provenance
 
 - **Upstream:** PhysRNA / AIYGO Computational Biology Group  
 - **License:** MIT (see `LICENSE`)  
-- **Extract created by:** Cursor Cloud Agent handoff, 2026-08-17
 
 When PhysComplex Filter is ready, consider publishing as a separate package that depends on `physrna-filter` rather than vendoring forever.
