@@ -1,8 +1,6 @@
 # PhysComplex Filter — starter kit
 
-Self-contained fork of **PhysRNA** (physics-informed AF3 screening) plus **PhysGT** (graph-transformer ΔΔG / interface scoring). Use this tree to build **PhysComplex Filter** without the full monorepo benchmark stack (Boltz-1000, FoldBench eval, M1 scorecards, acquisition ledger).
-
-Extracted from PhysRNA `main` @ `13384e3`.
+ **PhysRNA** (physics-informed AF3 screening) plus **PhysGT** (graph-transformer ΔΔG / interface scoring). Use this tree to build **PhysComplex Filter**, potentially expanding beyond RNA-RBP into other structure types.
 
 ## Quick start
 
